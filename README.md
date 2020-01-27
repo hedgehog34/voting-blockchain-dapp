@@ -11,7 +11,7 @@ Install Dependencies:
 
 Directions:
 1. Git Clone this repository
-2. Run ganache-cli ```node_modules/.bin/ganace-cli```
+2. Run ganache-cli ```node_modules/.bin/ganache-cli```
 3. Open up Nodejs console ```node```
 4. Compile the contract
   ```
@@ -22,7 +22,7 @@ Directions:
 
 5. Deploy the contract
   ```
-  abiDefinition = JSON.parse(compiledCode.contracts[':Voting'].interface)
+  abiDefinition = JSON.parse(compiledCode.contracts[':voting'].interface)
   VotingContract = web3.eth.contract(abiDefinition)
   byteCode = compiledCode.contracts[':voting'].bytecode
   deployedContract = VotingContract.new(['Bill','Tom','Janice'],{data: byteCode, from: web3.eth.accounts[0], gas: 4700000})
