@@ -8,7 +8,7 @@ const { asciiToHex, hexToAscii, } = web3.utils;
 const getAccount = index => getAccounts().then(result => result[index]);
 
 // In your nodejs console, execute contractInstance.address to get the address at which the contract is deployed and change the line below to use your deployed address
-const address = '0x72218a5a90ecec54bc4e8749ef7c8958a26d8f3e';
+const address = '0x28f673c06a3bc7119259af2c89a3ae96f400b3b5';
 
 const contractInstance = new Contract(abi, address);
 const candidates = { "Bill": "candidate-1", "Tom": "candidate-2", "Janice": "candidate-3" };

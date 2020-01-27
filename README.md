@@ -15,18 +15,21 @@ Directions:
 3. Open up Nodejs console ```node```
 4. Compile the contract
   ```
-  code = fs.readFileSync('Voting.sol').toString()
-  solc = require('solc')
-  compiledCode = solc.compile(code)
+  Web3 = require('web3');
+  web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8545"));
+
+  code = fs.readFileSync('Voting.sol').toString();
+  solc = require('solc');
+  compiledCode = solc.compile(code);
   ```
 
 5. Deploy the contract
   ```
-  abiDefinition = JSON.parse(compiledCode.contracts[':voting'].interface)
-  VotingContract = web3.eth.contract(abiDefinition)
-  byteCode = compiledCode.contracts[':voting'].bytecode
-  deployedContract = VotingContract.new(['Bill','Tom','Janice'],{data: byteCode, from: web3.eth.accounts[0], gas: 4700000})
-  contractInstance = VotingContract.at(deployedContract.address)
+  abiDefinition = JSON.parse(compiledCode.contracts[':voting'].interface);
+  VotingContract = web3.eth.contract(abiDefinition);
+  byteCode = compiledCode.contracts[':voting'].bytecode;
+  deployedContract = VotingContract.new(['Bill','Tom','Janice'],{data: byteCode, from: web3.eth.accounts[0], gas: 4700000});
+  contractInstance = VotingContract.at(deployedContract.address);
   ```
 
 
